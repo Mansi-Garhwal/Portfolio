@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work | Mansi Garhwal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Mansi Garhwal</a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="work.html" class="active">WORK</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="section-title">My Projects</h1>
+    <section class="filter-bar">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="residential">Residential</button>
+      <button data-filter="hospitality">Hospitality</button>
+      <button data-filter="institutional">Institutional</button>
+      <button data-filter="product">Product</button>
+    </section>
+
+    <section id="projects-grid" class="grid">
+      <article class="project-card" data-type="institutional">
+        <a href="projects/boys-hostel.html">
+          <img src="assets/images/boys-hostel-thumb.jpg" alt="Boys Hostel">
+          <h3>Boys Hostel</h3>
+          <p>Institutional • Goa</p>
+        </a>
+      </article>
+      <article class="project-card" data-type="residential">
+        <a href="projects/pritham-villa.html">
+          <img src="assets/images/pritham-thumb.jpg" alt="Pritham Villa">
+          <h3>Pritham Villa</h3>
+          <p>Residential • Margao, Goa</p>
+        </a>
+      </article>
+      <article class="project-card" data-type="hospitality">
+        <a href="projects/gudbud-icecream.html">
+          <img src="assets/images/gudbud-thumb.jpg" alt="Gudbud Ice Cream">
+          <h3>Gudbud Ice Cream</h3>
+          <p>Hospitality • Bengaluru</p>
+        </a>
+      </article>
+      <article class="project-card" data-type="hospitality">
+        <a href="projects/stories-pub.html">
+          <img src="assets/images/stories-thumb.jpg" alt="Stories Pub">
+          <h3>Stories Pub</h3>
+          <p>Hospitality • Bengaluru</p>
+        </a>
+      </article>
+      <article class="project-card" data-type="residential">
+        <a href="projects/residence-dharampuri.html">
+          <img src="assets/images/dharampuri-thumb.jpg" alt="Residence Dharampuri">
+          <h3>Dharampuri Residence</h3>
+          <p>Residential • M.P.</p>
+        </a>
+      </article>
+      <article class="project-card" data-type="product">
+        <a href="projects/product-design.html">
+          <img src="assets/images/product-thumb.jpg" alt="Product Design">
+          <h3>Product Design</h3>
+          <p>Chair Design</p>
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mansi Garhwal — Architect</p>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-bar button");
+    const cards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        cards.forEach(card => {
+          card.style.display =
+            filter === "all" || card.dataset.type === filter ? "block" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

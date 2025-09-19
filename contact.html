@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Mansi Garhwal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Mansi Garhwal</a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="work.html">WORK</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html" class="active">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+    <section class="contact-info">
+      <h1>Get in Touch</h1>
+      <p>Email: <a href="mailto:garhwalmansi@yahoo.in">garhwalmansi@yahoo.in</a></p>
+      <p>Phone: <a href="tel:+917747008825">+91-7747008825</a></p>
+      <p>Website: <a href="https://your-domain.com">your-domain.com</a></p>
+    </section>
+
+    <section class="contact-form">
+      <h2>Leave me a message</h2>
+      <form id="contactForm">
+        <label>Name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Message <textarea name="message" rows="5" required></textarea></label>
+        <button type="submit">Send</button>
+      </form>
+      <p class="note">⚠️ This opens your email app (no backend).</p>
+    </section>
+
+    <section class="socials">
+      <a href="https://wa.me/917747008825" target="_blank"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"></a>
+      <a href="https://www.linkedin.com/in/your-linkedin-id" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="https://instagram.com/your-instagram-id" target="_blank"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mansi Garhwal — Architect</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const subject = encodeURIComponent('Message from ' + f.get('name'));
+      const body = encodeURIComponent(
+        'Name: ' + f.get('name') + '\n' +
+        'Email: ' + f.get('email') + '\n\n' +
+        f.get('message')
+      );
+      window.location.href = `mailto:garhwalmansi@yahoo.in?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
